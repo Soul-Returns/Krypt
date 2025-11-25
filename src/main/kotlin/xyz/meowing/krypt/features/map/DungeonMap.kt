@@ -45,7 +45,7 @@ object DungeonMap : Feature(
     val secretsTextNotClearedColor by ConfigDelegate<MCColorCode>("dungeonMap.secretsTextNotClearedColor")
     val secretsTextClearedColor by ConfigDelegate<MCColorCode>("dungeonMap.secretsTextClearedColor")
     val secretsTextSecretsColor by ConfigDelegate<MCColorCode>("dungeonMap.secretsTextSecretsColor")
-    val coolText by ConfigDelegate<Boolean>("dungeonMap.coolText")
+    val coolText by ConfigDelegate<Boolean>("dungeonMap.textShadow")
     val roomLabelScale by ConfigDelegate<Double>("dungeonMap.roomLabelScale")
     val renderPuzzleIcons by ConfigDelegate<Boolean>("dungeonMap.renderPuzzleIcons")
     val puzzleIconScale by ConfigDelegate<Double>("dungeonMap.puzzleIconScale")
@@ -72,8 +72,8 @@ object DungeonMap : Feature(
     val mapBorderColor by ConfigDelegate<Color>("dungeonMap.mapBorderColor")
     val mapBackgroundColor by ConfigDelegate<Color>("dungeonMap.mapBackgroundColor")
 
-    val bossMapEnabled by ConfigDelegate<Boolean>("dungeonMap.bossMapEnabled")
-    val scoreMapEnabled by ConfigDelegate<Boolean>("dungeonMap.scoreMapEnabled")
+    val bossMapEnabled by ConfigDelegate<Boolean>("dungeonMap.bossMap")
+    val scoreMapEnabled by ConfigDelegate<Boolean>("dungeonMap.scoreMap")
 
     override fun addConfig() {
         ConfigManager
@@ -241,6 +241,13 @@ object DungeonMap : Feature(
                 )
             )
             .addFeatureOption(
+                "Text shadow",
+                ConfigElement(
+                    "dungeonMap.textShadow",
+                    ElementType.Switch(false)
+                )
+            )
+            .addFeatureOption(
                 "Secrets text not cleared",
                 ConfigElement(
                     "dungeonMap.secretsTextNotClearedColor",
@@ -259,13 +266,6 @@ object DungeonMap : Feature(
                 ConfigElement(
                     "dungeonMap.secretsTextSecretsColor",
                     ElementType.MCColorPicker(MCColorCode.GREEN)
-                )
-            )
-            .addFeatureOption(
-                "Shadowed text",
-                ConfigElement(
-                    "dungeonMap.coolText",
-                    ElementType.Switch(true)
                 )
             )
             .addFeatureOption(
@@ -449,16 +449,16 @@ object DungeonMap : Feature(
                 )
             )
             .addFeatureOption(
-                "boss map",
+                "Boss map",
                 ConfigElement(
-                    "dungeonMap.bossMapEnabled",
+                    "dungeonMap.bossMap",
                     ElementType.Switch(true)
                 )
             )
             .addFeatureOption(
-                "Score Map Enabled",
+                "Score map",
                 ConfigElement(
-                    "dungeonMap.scoreMapEnabled",
+                    "dungeonMap.scoreMap",
                     ElementType.Switch(true)
                 )
             )
