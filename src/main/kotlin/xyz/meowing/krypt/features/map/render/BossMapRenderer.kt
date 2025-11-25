@@ -101,7 +101,7 @@ object BossMapRenderer {
             //#endif
 
             if (DungeonMap.showPlayerHead) {
-                val borderColor = if (DungeonMap.iconClassColors) player.dungeonClass?.color else DungeonMap.playerIconBorderColor
+                val borderColor = if (DungeonMap.iconClassColors) player.dungeonClass?.mapColor else DungeonMap.playerIconBorderColor
 
                 Render2D.drawRect(context, -6, -6, 12, 12, borderColor ?: DungeonClass.defaultColor)
 

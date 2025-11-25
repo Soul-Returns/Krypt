@@ -10,9 +10,10 @@ enum class DungeonClass(val displayName: String) {
     BERSERK("Berserk"),
     ARCHER("Archer"),
     TANK("Tank"),
-    DEAD("DEAD");
+    DEAD("DEAD")
+    ;
 
-    val color: Color
+    val mapColor: Color
         get() = when (this) {
             HEALER -> DungeonMap.healerColor
             MAGE -> DungeonMap.mageColor

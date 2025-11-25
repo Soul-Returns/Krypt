@@ -3,7 +3,6 @@ package xyz.meowing.krypt.api.dungeons.enums
 import net.minecraft.world.entity.Entity
 import tech.thatgravyboat.skyblockapi.utils.text.TextProperties.stripped
 import xyz.meowing.knit.api.KnitClient
-import xyz.meowing.krypt.api.dungeons.handlers.MapScanner
 import xyz.meowing.krypt.api.dungeons.enums.map.Room
 import xyz.meowing.krypt.api.dungeons.enums.map.RoomClearInfo
 import xyz.meowing.krypt.api.hypixel.HypixelAPI

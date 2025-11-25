@@ -28,16 +28,16 @@ object StarMobHighlight : Feature(
     override fun addConfig() {
         ConfigManager
             .addFeature(
-                "Highlight star mobs",
+                "Star mob highlight",
                 "Highlights starred mobs in dungeons",
-                "General",
+                "Highlights",
                 ConfigElement(
                     "starMobHighlight",
                     ElementType.Switch(false)
                 )
             )
             .addFeatureOption(
-                "Highlight star mobs color",
+                "Color",
                 ConfigElement(
                     "starMobHighlight.color",
                     ElementType.ColorPicker(Color(0, 255, 255, 127))
