@@ -71,8 +71,15 @@ object ScoreCalculator {
 
             val score = secretsScore + completedRoomScore + (20 + skillRooms - puzzlePenalty - deathPenalty).coerceIn(20, 100) + bonusScore + speedScore
 
-            if (score >= 270 && !alerted270) ScoreAlert.show270()
-            if (score >= 300 && !alerted300) ScoreAlert.show300()
+            if (score >= 270 && !alerted270) {
+                ScoreAlert.show270()
+                alerted270 = true
+            }
+
+            if (score >= 300 && !alerted300) {
+                ScoreAlert.show300()
+                alerted300 = true
+            }
 
             return score
         }

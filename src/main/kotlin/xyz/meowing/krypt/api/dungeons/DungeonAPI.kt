@@ -465,9 +465,11 @@ object DungeonAPI {
             else -> "§c0"
         }
 
+        val mimicKilledText = if (mimicKilled) "§a✔" else "§c✘"
+        val princeKilledText = if (princeKilled) "§a✔" else "§c✘"
+
         val mimic = if (floor?.floorNumber in listOf(6, 7)) {
-            "§7M: " + if (mimicKilled) "§a✔" else "§c✘" +
-            " §8| §7P: " + if (princeKilled) "§a✔" else "§c✘"
+            "§7M: $mimicKilledText §8| §7P: $princeKilledText"
         } else ""
 
         val unfoundSecrets = "§7Unfound: " + when {
