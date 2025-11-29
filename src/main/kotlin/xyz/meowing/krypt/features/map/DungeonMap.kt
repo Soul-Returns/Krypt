@@ -1,10 +1,8 @@
 package xyz.meowing.krypt.features.map
 
 import net.minecraft.client.gui.GuiGraphics
-import xyz.meowing.knit.api.KnitPlayer
 import xyz.meowing.krypt.annotations.Module
 import xyz.meowing.krypt.api.dungeons.DungeonAPI
-import xyz.meowing.krypt.api.dungeons.enums.DungeonPlayer
 import xyz.meowing.krypt.api.location.SkyBlockIsland
 import xyz.meowing.krypt.config.ConfigDelegate
 import xyz.meowing.krypt.config.ui.elements.MCColorCode
@@ -25,7 +23,6 @@ object DungeonMap : Feature(
     private const val NAME = "Dungeon Map"
 
     val showPlayerHead by ConfigDelegate<Boolean>("dungeonMap.showPlayerHead")
-    val showSelfPlayerArrow by ConfigDelegate<Boolean>("dungeonMap.showSelfPlayerArrow")
     val playerHeadsUnder by ConfigDelegate<Boolean>("dungeonMap.playerHeadsUnder")
     val iconClassColors by ConfigDelegate<Boolean>("dungeonMap.iconClassColors")
     val playerIconBorderColor by ConfigDelegate<Color>("dungeonMap.playerIconBorderColor")
@@ -79,12 +76,6 @@ object DungeonMap : Feature(
     val bossMapEnabled by ConfigDelegate<Boolean>("dungeonMap.bossMap")
     val scoreMapEnabled by ConfigDelegate<Boolean>("dungeonMap.scoreMap")
 
-    fun shouldShowPlayerHeadFor(player: DungeonPlayer): Boolean {
-        if (!showPlayerHead) return false
-        if (showSelfPlayerArrow && player.name == KnitPlayer.name) return false
-        return true
-    }
-
     override fun addConfig() {
         ConfigManager
             .addFeature(
@@ -100,13 +91,6 @@ object DungeonMap : Feature(
                 "Show player heads",
                 ConfigElement(
                     "dungeonMap.showPlayerHead",
-                    ElementType.Switch(true)
-                )
-            )
-            .addFeatureOption(
-                "Arrow for own player",
-                ConfigElement(
-                    "dungeonMap.showSelfPlayerArrow",
                     ElementType.Switch(true)
                 )
             )
